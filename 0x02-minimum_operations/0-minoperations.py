@@ -10,7 +10,7 @@ def minOperations(n):
     """ Minimum Operations. """
     if n < 2:
         return 0
-    
+
     num_op = 0
     num_H = 1
     tmp = 1
@@ -24,7 +24,7 @@ def minOperations(n):
         else:
             num_op = num_op + 1
             num_H = num_H + tmp
-        
+
         if flag:
             tmp = num_H / 2
         if n == num_H:
