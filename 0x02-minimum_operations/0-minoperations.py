@@ -8,16 +8,24 @@
 
 def minOperations(n):
     """ Minimum Operations. """
-    if n < 1:
+    if n < 2:
         return 0
     
-    count = 0
+    num_op = 0
+    num_H = 1
+    tmp = 1
 
-    while n > 1:
+    while True:
+        flag = 0
         if n % count == 0:
-            count = count + 2
+            num_op = num_op + 2
+            num_H = 2 * num_H
+            flag = 1
         else:
-            count = count + 1
-        if n == count:
-            return count
-    return 1
+            num_op = num_op + 1
+            num_H = num_H + tmp
+        
+        if flag:
+            tmp = num_H
+        if n == num_H:
+            return num_op
