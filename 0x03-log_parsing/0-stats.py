@@ -4,16 +4,17 @@
 import sys
 
 
-st_code = { "200": 0,
-		"301": 0,
-		"400": 0,
-		"401": 0,
-		"403": 0,
-		"404": 0,
-		"405": 0,
-		"500": 0 }
-file_size = 0
-count = 0
+st_code = {"200": 0,
+               "301": 0,
+               "400": 0,
+               "401": 0,
+               "403": 0,
+               "404": 0,
+               "405": 0,
+               "500": 0}
+    count = 1
+    file_size = 0
+
 def file_size(line):
     """ Get the file size of each line """
     try:
