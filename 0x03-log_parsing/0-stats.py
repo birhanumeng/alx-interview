@@ -13,7 +13,7 @@ status_code = { "200": 0,
 		"405": 0,
 		"500": 0 }
 file_size = 0
-count = 1
+count = 0
 def file_size(line):
     """ Get the file size of each line """
     try:
