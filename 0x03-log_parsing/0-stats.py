@@ -4,18 +4,19 @@
 import sys
 
 
-st_code = { "200": 0,
-		"301": 0,
-		"400": 0,
-		"401": 0,
-		"403": 0,
-		"404": 0,
-		"405": 0,
-		"500": 0 }
-file_size = 0
-count = 1
+if __name__ == "__main__":
+    st_code = {"200": 0,
+               "301": 0,
+               "400": 0,
+               "401": 0,
+               "403": 0,
+               "404": 0,
+               "405": 0,
+               "500": 0}
+    count = 1
+    file_size = 0
 
-def parse_line(line):
+    def parse_line(line):
         """ Read, parse and grab data"""
         try:
             parsed_line = line.split()
@@ -26,7 +27,7 @@ def parse_line(line):
         except Exception:
             return 0
 
-def print_stats():
+    def print_stats():
         """print stats in ascending order"""
         print("File size: {}".format(file_size))
         for key in sorted(st_code.keys()):
