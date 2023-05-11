@@ -4,7 +4,8 @@
 import sys
 
 
-st_code = {"200": 0,
+if __name__ == "__main__":
+    status_code = {"200": 0,
                "301": 0,
                "400": 0,
                "401": 0,
@@ -15,28 +16,27 @@ st_code = {"200": 0,
     count = 1
     file_size = 0
 
-def file_size(line):
-    """ Get the file size of each line """
-    try:
-            parsed_line = line.split()
-            status_code = parsed_line[-2]
-            if status_code in st_code.keys():
-                st_code[status_code] += 1
-            return int(parsed_line[-1])
+    def get_size(line):
+        """ Get file size of each line """
+        try:
+            line_arr = line.split()
+            code = line_arr[-2]
+            if code in status_code.keys():
+                status_code[code] += 1
+            return int(line_arr[-1])
         except Exception:
             return 0
 
-def print_metrics():
-    """ Print the line metrics """
-    print("File size: {}".format(file_size))
-        for key in sorted(st_code.keys()):
-            if st_code[key]:
-                print("{}: {}".format(key, st_code[key]))
+    def print_metrics():
+        """ Print line metrics """
+        print("File size: {}".format(file_size))
+        for key in sorted(status_code.keys()):
+            if status_code[key]:
+                print("{}: {}".format(key, status_code[key]))
 
-if __name__ == "__main__":
     try:
         for line in sys.stdin:
-            file_size += file_size(line)
+            file_size += get_size(line)
             if count % 10 == 0:
                 print_metrics()
             count += 1
