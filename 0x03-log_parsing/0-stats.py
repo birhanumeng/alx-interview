@@ -18,7 +18,7 @@ if __name__ == "__main__":
     count = 0
     file_size = 0
 
-    def file_size(line):
+    def get_file_size(line):
         """ Get the file size """
         try:
             line_arr = line.split()
@@ -39,7 +39,7 @@ if __name__ == "__main__":
     try:
         for line in sys.stdin:
 	    count += 1
-            file_size += file_size(line)
+            file_size += get_file_size(line)
             if count % 10 == 0:
                 print_metrics()
     except KeyboardInterrupt:
