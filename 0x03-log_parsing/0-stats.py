@@ -36,6 +36,7 @@ def print_stats():
             print("{}: {}".format(key, st_code[key]))
 
 if __name__ == "__main__":
+
     try:
         for line in sys.stdin:
             file_size += parse_line(line)
