@@ -27,9 +27,9 @@ def validUTF8(data):
               only handle the 8 least significant bits of each
               integer
     """
-    u = [[0], [1, 0], [1, 1, 0], [1, 1, 1, 0]]
+    utf = [[0], [1, 0], [1, 1, 0], [1, 1, 1, 0]]
     for d in data:
         bi = get_binary(d)
-        if not(bi[:1] == u[0]):
+        if not(bi[:1] == utf[0]):
             return False
     return True
