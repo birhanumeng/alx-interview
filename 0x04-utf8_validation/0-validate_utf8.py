@@ -13,6 +13,7 @@ def validUTF8(data):
               only handle the 8 least significant bits of each
               integer
     """
-    if data > 127:
-        return False
+    for d in data:
+        if d > 127:
+            return False
     return True
