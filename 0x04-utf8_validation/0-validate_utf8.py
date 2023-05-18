@@ -1,6 +1,20 @@
 #!/usr/bin/python3
 """ UTF-8 validation module. """
 
+def get_binary(num):
+    """ Return binary representation of a number. """
+    binary = []
+    while(num > 1):
+        binary.append(num % 2)
+        num = num // 2
+    binary.append(num)
+    gap = len(binary) - 8
+    if gap < 0:
+        for i in range(abs(gap)):
+            binary.append(0)
+    binary.reverse()
+    return binary
+
 def validUTF8(data):
     """ determines if a given data set represents a valid
         UTF-8 encoding. Return: True if data is a valid
@@ -14,6 +28,8 @@ def validUTF8(data):
               integer
     """
     for d in data:
-        if d > 127:
+        bi = get_binary(d)
+        if not(bi[:1] == [0] or bi[:2] == [1, 0] or
+        bi[:3] == [1, 1, 0] or bi[:4] == [1, 1, 1, 0]):
             return False
     return True
