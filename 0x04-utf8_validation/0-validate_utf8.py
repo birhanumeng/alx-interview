@@ -30,6 +30,7 @@ def validUTF8(data):
     utf = [[0], [1, 0], [1, 1, 0], [1, 1, 1, 0]]
     for d in data:
         bi = get_binary(d)
-        if not(bi[:1] == utf[0]):
+        if not(bi[:1] == utf[0] or bi[:2] == utf[1] or\
+                bi[:3] == utf[2] or bip[:4] == utf[2]):
             return False
     return True
