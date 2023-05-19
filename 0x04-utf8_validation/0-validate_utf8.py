@@ -33,4 +33,13 @@ def validUTF8(data):
         if not(bi[:1] == utf[0] or bi[:2] == utf[1] or\
                 bi[:3] == utf[2] or bip[:4] == utf[3]):
             return False
+        if bi[:2] == utf[1]:
+            if bi[2] != 1:
+                return False
+        if bi[:3] == utf[2]:
+            if bi[3:5] != [0, 0]:
+                return False
+            if bi[:3] == utf[3]:
+                if bi[4:7] != [1, 1, 1]:
+                    return False
     return True
