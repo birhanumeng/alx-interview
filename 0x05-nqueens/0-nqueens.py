@@ -20,17 +20,19 @@ if __name__ == "__main__":
     places = []
 
     def solve_queens(row, n, places):
+	""" Solving the puzzle. """
         if (row == n):
             print(places)
         else:
             for col in range(n):
                 new = [row, col]
                 if valid_placement(places, new):
-                    solution.append(new)
+                    places.append(new)
                     solve_queens(row + 1, n, places)
-                    solution.remove(new)
+                    places.remove(new)
 
     def valid_placement(places, new):
+	""" Check the validity of the place of the queen. """
         for queen in places:
             if queen[1] == new[1]:
                 return False
