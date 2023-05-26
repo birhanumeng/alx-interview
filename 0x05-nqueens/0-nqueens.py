@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-'''
-Module that solves the N Queens puzzle
-'''
+""" Solve the N queens puzzle. """
+
 from sys import argv, exit
+
 
 if __name__ == "__main__":
     if len(argv) != 2:
