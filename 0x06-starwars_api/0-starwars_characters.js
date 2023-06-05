@@ -12,11 +12,11 @@ request(url, async (error, response, body) => {
     const characters = JSON.parse(body).characters;
     for (const character of characters) {
       const name = await new Promise((resolve, reject) => {
-        request(character, (error, response, body) => {
+        request(character, (error, res, bodyy) => {
           if (error) {
             reject(error)
           } else {
-            resolve(JSON.parse(body).name);
+            resolve(JSON.parse(bodyy).name);
           }
         });
       });
