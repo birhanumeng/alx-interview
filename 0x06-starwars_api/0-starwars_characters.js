@@ -2,9 +2,8 @@
 
 const request = require('request');
 
-const id = process.argv[2];
-const url = `https://swapi-api.alx-tools.com/api/films/${id}/`;
-
+const movieId = process.argv[2];
+const url = `https://swapi.dev/api/films/${movieId}/`;
 request(url, async function (error, response, body) {
   if (error) {
     console.log(error);
@@ -12,11 +11,11 @@ request(url, async function (error, response, body) {
     const characters = JSON.parse(body).characters;
     for (const character of characters) {
       const res = await new Promise((resolve, reject) => {
-        request(character, (error, res, bodyy) => {
+        request(character, (error, res, html) => {
           if (error) {
-            reject(error)
+            reject(error);
           } else {
-            resolve(JSON.parse(bodyy).name);
+            resolve(JSON.parse(html).name);
           }
         });
       });
