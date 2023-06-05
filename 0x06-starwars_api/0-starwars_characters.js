@@ -11,7 +11,7 @@ request(url, async function (error, response, body) {
   } else {
     const characters = JSON.parse(body).characters;
     for (const character of characters) {
-      const name = await new Promise((resolve, reject) => {
+      const res = await new Promise((resolve, reject) => {
         request(character, (error, res, bodyy) => {
           if (error) {
             reject(error)
@@ -20,7 +20,7 @@ request(url, async function (error, response, body) {
           }
         });
       });
-      console.log(name);
+      console.log(res);
     }
   }
 });
