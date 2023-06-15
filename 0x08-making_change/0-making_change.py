@@ -18,13 +18,13 @@ def makeChange(coins, total):
 
     for i in range(1, total + 1):
         my_dict[i] = new_tot
-        for co in coins:
+        for c in coins:
             cur = i - c
             if cur < 0:
                 continue
             my_dict[i] = min(my_dict[cur] + 1, my_dict[i])
 
-    if store[total] == total + 1:
+    if store[total] > total:
         return -1
 
     return my_dict[total]
