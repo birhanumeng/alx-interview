@@ -24,7 +24,7 @@ def makeChange(coins, total):
                 continue
             my_dict[i] = min(my_dict[cur] + 1, my_dict[i])
 
-    if store[total] > total:
+    if store[total] == total + 1:
         return -1
 
     return my_dict[total]
