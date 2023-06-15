@@ -10,19 +10,23 @@ def makeChange(coins, total):
             -If total is 0 or less, return 0
             -If total cannot be met return -1
     """
-    if total < 1:
+    if total <= 0:
         return 0
 
-    new_tot = total + 1
-    my_dict = {0: 0}
+    newVal = total + 1
+    store = {0: 0}
+
     for i in range(1, total + 1):
-        my_dict[i] = new_tot
-        for c in coins:
-            cur = i - c
-            if cur < 0:
+        store[i] = newVal
+
+        for coin in coins:
+            current = i - coin
+            if current < 0:
                 continue
-            my_dict[i] = min(my_dict[current] + 1, my_dict[i])
-    if my_dict[total] > total:
+
+            store[i] = min(store[current] + 1, store[i])
+
+    if store[total] == total + 1:
         return -1
 
-    return my_dict[total]
+    return store[total]
