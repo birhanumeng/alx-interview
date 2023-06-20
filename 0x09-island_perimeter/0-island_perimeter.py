@@ -17,19 +17,17 @@ def island_perimeter(grid):
           connected to the water surrounding the island).
     """
     perimeter = 0
-    row = len(grid)
-    column = len(grid[0])
 
-    for i in range(1, row):
-        for j in range(1, column):
+    for i in range(len(grid)):
+        for j in range(len(grid[i])):
             if grid[i][j] == 1:
                 if j == 0 or grid[i][j - 1] == 0:
                     perimeter += 1
-                if j == column - 1 or grid[i][j + 1] == 0:
+                if j == len(grid[i]) - 1 or grid[i][j + 1] == 0:
                     perimeter += 1
                 if i == 0 or grid[i - 1][j] == 0:
                     perimeter += 1
-                if i == row - 1 or grid[i + 1][j] == 0:
+                if i == len(grid) - 1 or grid[i + 1][j] == 0:
                     perimeter += 1
 
     return perimeter
