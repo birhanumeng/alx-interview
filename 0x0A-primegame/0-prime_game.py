@@ -41,7 +41,8 @@ def isWinner(x, nums):
             - You can assume n and x will not be larger than 10000
             - n may be diiferen for each round.
     """
-    if len(nums) == 0 or len(nums) > 1000 or x < 1 or x > 10000:
+    l = len(nums)
+    if l == 0 or l > 1000 or x < 1 or x > 10000 or l != x:
         return None
 
     m_win = 0
