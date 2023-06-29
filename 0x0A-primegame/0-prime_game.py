@@ -42,7 +42,7 @@ def isWinner(x, nums):
             - n may be diiferen for each round.
     """
     l = len(nums)
-    if l == 0 or l > 1000 or x < 1 or x > 10000 or l != x:
+    if l == 0 or l > 10000 or x < 1 or x > 10000 or l != x:
         return None
 
     m_win = 0
