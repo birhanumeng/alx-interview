@@ -24,9 +24,10 @@ def checkMultiplies(num, numbers):
             - numbers is a list of numbers
     """
     multiplies = []
-    for n in numbers:
-        if n % num == 0:
-            multiplies.append(n)
+    if num != 1:
+        for n in numbers:
+            if n % num == 0:
+                multiplies.append(n)
     return multiplies
 
 
@@ -63,6 +64,7 @@ def isWinner(x, nums):
             b_win += 1
         else:
             m_win += 1
+        uniqueNums.remove(checkMultiplies(i, uniqueNums))
     if m_win > b_win:
         return 'Maria'
     return 'Ben'
