@@ -45,9 +45,10 @@ def isWinner(x, nums):
     if l == 0 or l > 10000 or x < 1 or x > 10000 or l != x:
         return None
 
+    uniqueNums = list(set(nums))
     m_win = 0
     b_win = 0
-    for i in nums:
+    for i in uniqueNums:
         m_selected = 1
         b_selected = 0
         for s in range(1, i + 1):
