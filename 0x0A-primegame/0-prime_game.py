@@ -64,7 +64,6 @@ def isWinner(x, nums):
             b_win += 1
         else:
             m_win += 1
-        uniqueNums.remove(checkMultiplies(i, uniqueNums))
     if m_win > b_win:
         return 'Maria'
     return 'Ben'
