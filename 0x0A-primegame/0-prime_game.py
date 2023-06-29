@@ -8,7 +8,10 @@ def isPrime(n):
                 - returns true if the argument is prime number
                 - otherwise returns false
         """
-        for num in range((n // 2) + 1):
+        if n == 1:
+            return False
+
+        for num in range(2, (n // 2) + 1):
             if n % num == 0:
                 return False
         return True
