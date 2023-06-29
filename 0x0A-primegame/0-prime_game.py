@@ -17,20 +17,6 @@ def isPrime(n):
         return True
 
 
-def checkMultiplies(num, numbers):
-    """ Find out all its multplies for number 'num' in the
-        list of numbers.
-            - num is number
-            - numbers is a list of numbers
-    """
-    multiplies = []
-    if num != 1:
-        for n in numbers:
-            if n % num == 0:
-                multiplies.append(n)
-    return multiplies
-
-
 def isWinner(x, nums):
     """ Given a set of consecutive integers starting from 1 up
         to and including n, they take turns choosing a prime number
